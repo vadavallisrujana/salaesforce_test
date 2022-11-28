@@ -1,0 +1,64 @@
+﻿@charset "UTF-8";
+
+.login-bg{background:url(../../images/BackEnd/brand/login-bg.jpg) center center fixed; background-size: cover}
+.hl-anchor{color: #ffd35d}
+.hl-anchor:hover{color: #fff}
+.chat-btn{color: #f5f7fb; border-color: #026da0; background: #0091a0;}
+.chat-btn:hover{background:#b6943b; color:#fff; border-color:#f5d068}
+.user-name{color:#ffd35d; font-size:16px}
+.user-name span{color:#bbb}
+.menu-outer a{color: #fff; padding: 4px 12px; display: inline-block; margin-top: 15px; background: #d4a930; font-size: 16px; float:right}
+
+.chat-history h3{font-size:18px; margin:0}
+.chat-history span.history-start{display:block; margin:5px 0}
+.chat-history button.history-open-btn{background: #b4943f; color: #fff; text-transform: uppercase; padding: 3px 10px; font-size: 12px;}
+.chat-history-date{color:#da1414}
+.chat-history-date i{margin-top:3px;}
+.case-tabing li{width:100%}
+.case-tabing li button{background:none; border:0; padding:0; outline:none; cursor:pointer}
+.chat-history-cases ul.pagination{text-align:center; margin:0 auto; margin-top:0px; margin-bottom:10px;}
+.chat-history-cases ul.pagination .page-item .page-link{background:#0291a0; color:#fff; border:1px solid #08727d}
+.chat-history-search input[type=search]{width:50%; transition:0.5s ease-in-out; float:right}
+.chat-history-search input[type=search]:focus{width:100%;}
+.input-icon-addon:last-child{margin-top:18px;}
+.header-name{flex-flow:row-reverse}
+.inner-table thead th{vertical-align: middle;}
+a.email{color:#bf1515}
+.name-badge{position:static !important; margin-left:5px; font-size:14px; background:#b91919}
+.welcome-dashboard {margin-top:25vh}
+.welcome-dashboard h2 {
+    padding: 50px 0; font-size:40px;
+}
+p.view-profile-field{font-size:17px; margin-top:7px;}
+.view-profile-card {padding:0}
+    .view-profile-card .avatar-xxl{margin-bottom:10px;}
+    /*.case-type{background:#000}*/
+    /*.case-type option:first-child {
+    display: none
+}*/
+.lcp-modal {background: #b6943b; color: #fff;}
+.lcp-modal .close {background: rgba(0, 0, 0, 0.15); opacity: 1; color: #fff; text-shadow: none;}
+
+
+.back-header-logo {
+    transition: 0.5s ease-in-out;
+    padding: 20px;
+    position: absolute;
+    background: #fff; top:0;
+}
+
+.nav-scape {width:210px;}
+
+
+@media(max-width:768px) {
+    .chat-history-search input[type=search]{width:100%; float:none; margin:0 0 20px 0;}
+	.input-icon-addon:last-child{margin-top:0px;}
+	.chat-history-date{text-align:left !important; margin:10px 0 0 0}
+	.user-name{margin-top:14px}
+}
+
+@media(max-width:567px){
+	.header-name{margin-top:15px; flex-flow:initial}
+	.goback-case-history{float:none !important; margin-bottom:1rem}
+	.cases-pagination, .cases-pagination .page-total-text{display:block !important}
+}

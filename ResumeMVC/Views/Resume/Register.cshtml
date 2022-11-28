@@ -1,0 +1,205 @@
+﻿@model ResumeMVC.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+
+
+
+
+@using (Html.BeginForm("SaveRegisterDetails", "Resume", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="row">
+        <!--Show details are saved successfully message-->
+        <div class="col-lg-12">@ViewBag.Message</div>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+        <div class="col-md-5">
+            @Html.ActionLink("Log in", "Login", "Resume", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </div>
+    </div>
+}
+
+
+
+<!--<div class="modal fade in" id="employeeRegistration" role="dialog" aria-labelledby="myModalLabel" style="display: none; padding-left: 16px;">
+    @using (Html.BeginForm("SaveRegisterDetails", "Resume", FormMethod.Post, new { @class = "", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> REGISTRATION</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Designation </label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="form-control input-sm" type="text" name="job_title" placeholder=" Job title here" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Firstename</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="form-control input-sm" type="text" name="fore_name" placeholder=" First name here" value="" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Middle Name</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="form-control input-sm" type="text" name="middle_name" placeholder=" Middle name here" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Surname</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="form-control input-sm" type="text" name="sur_name" placeholder=" Surname here" value="" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Gender</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <select class="select2-1 form-control select2-hidden-accessible" style="width:100%" name="gender" required="" tabindex="-1" aria-hidden="true">
+                                            <option value="">Select Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select><span class="select2 select2-container select2-container--bootstrap" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-gender-ty-container"><span class="select2-selection__rendered" id="select2-gender-ty-container" title="Select Gender">Select Gender</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Date of Birth</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="date-picker form-control" type="text" name="date-picker" placeholder=" DOB here " autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Contact Number</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="form-control input-sm" type="text" name="contact_no" id="contact_noCheck" placeholder=" Contact number here" required="" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Email <span id="displayMessage"></span></label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="form-control input-sm" type="email" name="email" id="user_name" placeholder=" Email address here" required="" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Password</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="form-control input-sm" type="password" name="password" id="password" placeholder=" Password here" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Repeat Password</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <input class="form-control input-sm" type="password" name="re_password" id="re_password" placeholder=" Repeat password" required="">
+                                            <div class="input-group-addon" id="passwordMatchMessage">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    @Html.ActionLink("Log in", "Login", "Resume", routeValues: null, htmlAttributes: new { id = "loginLink" })-->
+@*<button type="submit" class="btn btn-green" name="register_employee" id="btnEnableDisable" disabled="disabled">REGISTER</button>*@
+<!--<button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>-->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*<div class="form-group">
+    <div class="row">
+        <div class="col-md-3">
+            <label class="inline">skills  <span id="displayMessage"></span></label>
+        </div>
+        <div class="col-md-9">
+            @foreach (var item in Model.Skills)
+            {
+                @Html.EditorFor(model => item.SkillName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @required = "" } })
+
+            }
+
+        </div>
+    </div>
+</div>*@

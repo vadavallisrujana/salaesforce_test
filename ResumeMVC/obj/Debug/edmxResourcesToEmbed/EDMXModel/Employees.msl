@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBCVModel1StoreContainer" CdmEntityContainer="DBCVEntities1">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="DBCVModel1.Person">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="IDPers" ColumnName="IDPers" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="EducationalLevel" ColumnName="EducationalLevel" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="LinkedInProdil" ColumnName="LinkedInProdil" />
+          <ScalarProperty Name="FaceBookProfil" ColumnName="FaceBookProfil" />
+          <ScalarProperty Name="C_CornerProfil" ColumnName="C_CornerProfil" />
+          <ScalarProperty Name="TwitterProfil" ColumnName="TwitterProfil" />
+          <ScalarProperty Name="Profil" ColumnName="Profil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    <link href="~/Content/BackEnd/dashboard.css" rel="stylesheet" />
+    <link href="~/BackEnd/Plugins/charts-c3/plugin.css" rel="stylesheet" />
+    <link href="~/BackEnd/Plugins/maps-google/plugin.css" rel="stylesheet" />
+    <link href="~/Content/BackEnd/style.css" rel="stylesheet" />
+    <script src="~/Scripts/BackEnd/require.min.js"></script>
+    <script src="~/Scripts/BackEnd/dashboard.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="./assets/plugins/charts-c3/plugin.js"></script> -->
+    <!-- <script src="./assets/plugins/maps-google/plugin.js"></script> -->
+    <!-- <script src="./assets/plugins/input-mask/plugin.js"></script> -->
+</head>
+<body>
+    <div class="page">
+        <div class="page-main">
+            <header>
+                <div class="header py-4">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="header-logo col-sm-6 col-12">
+                                <a class="header-brand" href="../Admin">
+                                    <img src="~/images/BackEnd/brand/logo.png" alt="Legal Consultancy Portal">
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="menu-outer">
+                            <a href="#" class=" d-lg-none ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse">
+                                Menu <i class="fe fe-menu"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </header>
+            <div>
+                @RenderBody()
+            </div>
+        </div>
+        <footer class="footer">
+            @Html.Partial("~/Views/Admin/Shared/_Footer.cshtml")
+        </footer>
+
+    </div>
+    <script src="~/Scripts/FrontEnd/jquery-1.9.0.min.js"></script>
+    <script src="~/Plugins/FrontEnd/slider/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/FrontEnd/scroll.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+

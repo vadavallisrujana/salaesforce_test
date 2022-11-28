@@ -1,0 +1,130 @@
+/* Style the tab */
+*{outline:none}
+.chat-app{box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); border-radius: 4px; border:1px solid #ececec; height:73vh}
+.tab {
+    float: left;
+    border-right: 1px solid #ececec;
+    width: 30%;
+    height: 100%;
+}
+
+/* Style the buttons inside the tab */
+/* .tab button {
+    display: block;
+    background-color: inherit;
+    color: #1b202d;
+    padding:15px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px;
+    border-bottom: 1px solid #ececec;
+    font-weight: 600; line-height:20px;
+} */
+.tab button span{display: block; font-size: 14px; text-transform: uppercase; opacity: 0.25; transition: 0.3s;}
+
+/* Change background color of buttons on hover */
+
+.tab button.chat-active{background: #f5d069;}
+.tab button.chat-active span{opacity:0.7}
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {position:relative;
+    float: left;
+    padding:0;
+    width: 70%;
+    height: 100%;
+	display:none
+}
+
+.chat-show{display:block}
+
+.search-chat{padding: 15px 8px; background: rgba(0, 0, 0, 0.02); border-bottom: 1px solid #ececec; margin: 0;}
+.chat-left-scroll{height:calc(100% - 80px); padding:0;}
+button.chat-search-btn{background: #0091a0; color: #fff; transition:0.5s ease-in-out}
+button.chat-search-btn:hover{background: #b91919; color: #fff;}
+.chat-left-scroll li:first-child{padding:15px;}
+.chat-left-scroll li {color: #1b202d; cursor: pointer; transition: 0.3s; font-size: 20px; font-weight: 600; line-height:20px; padding:15px;}
+.chat-left-scroll li:hover{background:rgba(0, 0, 0, 0.02)}
+.chat-left-scroll li span{display: block; font-size: 14px; text-transform: uppercase; opacity: 0.25; transition: 0.3s;}
+.chat-left-scroll li.chat-active{background: #f5d069;}
+.chat-left-scroll li.chat-active span{opacity:0.7}
+
+
+.chat-right-scroll {
+    height: calc(100% - 160px);
+    padding: 0;
+}
+.chat-name{width: 100%; background: #f0f2f6; height: 70px; border-bottom: 1px solid #ececec; top: auto; left: auto; color: #1b202d; font-size: 20px; font-weight: 600; line-height:20px; padding:14px 15px;}
+.chat-name span{display: block; font-size: 14px; text-transform: uppercase; opacity: 0.25;}
+.chat-main-content-outer{padding:15px;}
+.chat-name span.case-id-no{color: #1b202d; font-size: 20px; font-weight: 600; line-height:20px; opacity:1}
+
+
+
+.chat-body{margin:15px 0 0 0}
+.chat-body:first-child{margin-top:0}
+.chat-body:last-child{margin-bottom:0}
+
+/* chat-right start */
+.chatright { float:right; width:60%;}
+.chatright .chat-time{text-align: right; text-transform: uppercase; font-size: 13px; color: rgba(0, 0, 0, 0.5);}
+.chatright .chat-content{position: relative; display: block; clear: both; padding:14px; background:linear-gradient(135deg, rgb(0, 145, 160) 1%, rgb(47, 175, 169) 100%); border-radius: 10px 2px 2px 10px; margin:0 0 5px 0; border: 1px solid rgba(0, 0, 0, 0.03);}
+
+.chatright .chat-content p{font-size:15px; color:#fff; margin:0; line-height:17px; margin:10px 0; display:block}
+.chatright .chat-content p:first-child{margin-top:0}
+.chatright .chat-content p:last-child{margin-bottom:0}
+
+.chatright .chat-content:first-child{margin-top:0}
+.chatright .chat-content:last-child{margin-bottom:20px;}
+/* chat-right end */
+
+
+
+/* chat-left start */
+.chat-left { float:left; width:60%;}
+.chat-left .chat-time{text-align: left; text-transform: uppercase; font-size: 13px; color: rgba(0, 0, 0, 0.5);}
+.chat-left .chat-content{position: relative; display: block; clear: both; padding: 14px; background: linear-gradient(135deg, rgb(241, 211, 129) 1%, rgb(243, 226, 180) 100%); border-radius: 2px 10px 10px 1px; margin: 0 0 5px 0; border: 1px solid rgba(0, 0, 0, 0.03);}
+
+.chat-left .chat-content p{font-size:15px; color:#3e3315; margin:0; line-height:17px; margin:10px 0; display:block}
+.chat-left .chat-content p:first-child{margin-top:0}
+.chat-left .chat-content p:last-child{margin-bottom:0}
+
+.chat-left .chat-content:first-child{margin-top:0}
+.chat-left .chat-content:last-child{margin-bottom:20px;}
+/* chat-left end */
+
+.chat-search{background:#f0f2f6; padding:15px; position:relative}
+.chat-search textarea{display: block;
+    width: 100%;
+    padding: 6px 60px 6px 12px;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius:20px; resize:none; max-height:250px; border:0
+}
+.chat-search button{position: absolute; top: 24px; RIGHT: 25px; height: 40px; width: 40px; border-radius: 100px; border: 0; background: linear-gradient(135deg, rgb(65, 55, 145) 1%, rgb(173, 99, 201) 100%); color: #fff; font-size: 16px; display: flex; align-items: center; transition:0.5s ease-in-out; cursor:pointer}
+.chat-search button i{margin:0 auto;  transition:0.5s ease-in-out}
+.chat-search button:focus, .chat-search textarea:focus{outline:none}
+
+.chat-documentation-browse{width: auto; position: absolute; top: 12px; right: 12px;}
+.chat-documentation-browse .custom-file-label::after{display:none !important}
+.chat-documentation-browse .custom-file-input, .chat-documentation-browse .custom-file-label{width: 40px; height: 40px; font-size: 18px; border-radius: 100px; background: #ffffff; color: #444444; border: 1px solid #e8e8e8; cursor:pointer}
+.chat-documentation-browse label.custom-file-label:hover, .chat-documentation-browse label.custom-file-label i:hover{cursor:pointer}
+
+.chat-date{width:100%; text-align:center; text-transform: uppercase; font-size: 13px; color: rgba(0, 0, 0, 0.5); position:relative}
+.chat-date span{background:#fff; padding:2px 15px;}
+.chat-date:before{content: ''; position: absolute; width: 100%; height: 1px; background: rgba(0, 0, 0, 0.05); top: 10px; left: 0; z-index: -1;}
+
+.chat-left .chat-content p a {position: relative; color: #694e02; font-weight: 600; text-decoration: underline;}
+.chatright .chat-content p a {position: relative; color: #fff; font-weight: 600; text-decoration: underline;}
+    

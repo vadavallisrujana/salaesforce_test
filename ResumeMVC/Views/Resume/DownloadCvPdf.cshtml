@@ -1,0 +1,174 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body id="printpdf_cv">
+    @model ResumeMVC.EDMXModel.Person
+
+    <div class="panel panel-default" style="width: 65%; margin-left: 18%; margin-top: 3%;">
+
+        <div class="panel-heading">
+            <h3 class="panel-title"> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName) Informtion</h3>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Name:
+                    </label>
+                    @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        SurName:
+                    </label>
+                    @Html.DisplayFor(model => model.LastName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Date of Birth:
+                    </label>
+                    @Html.DisplayFor(model => model.DateOfBirth)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Place of Birth:
+                    </label>
+                    @Html.DisplayFor(model => model.Nationality)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Email:
+                    </label>
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Phone:
+                    </label>
+                    @Html.DisplayFor(model => model.Tel)
+                </div>
+            </div>
+        </div> <!-- END PNEL BODY-->
+
+    </div>
+    <div class="panel panel-default" style="width: 65%; margin-left: 18%; margin-top: -2%;">
+
+        <div class="panel-heading">
+            <h3 class="panel-title"> Educational  Informtion</h3>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        EducationalLevel :
+                    </label>
+                    @Html.DisplayFor(model => model.EducationalLevel)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Degree:
+                    </label>
+                    @Html.DisplayFor(model => model.Educations.FirstOrDefault().Degree)
+                </div>
+            </div>
+
+        </div> <!-- END PNEL BODY-->
+
+    </div>
+    <div class="panel panel-default" style="width: 65%; margin-left: 18%; margin-top: -2%;">
+
+        <div class="panel-heading">
+            <h3 class="panel-title"> PROFESSIONAL SUMMARY</h3>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Role :
+                    </label>
+                    @Html.DisplayFor(model => model.WorkExperiences.FirstOrDefault().Title)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Skil:
+                    </label>
+                    @Html.DisplayFor(model => model.Skills.FirstOrDefault().SkillName)
+                </div>
+            </div>
+        </div> <!-- END PNEL BODY-->
+
+    </div>
+
+
+    <div class="panel panel-default" style="width: 65%; margin-left: 18%; margin-top: -2%;">
+
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                PROFESSIONAL EXPERIENCE
+            </h3>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Current Comapny :
+                    </label>
+                    @Html.DisplayFor(model => model.WorkExperiences.FirstOrDefault().Company)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Skil:
+                    </label>
+                    @Html.DisplayFor(model => model.WorkExperiences.FirstOrDefault().FromYear)
+                </div>
+            </div>
+
+        </div> <!-- END PNEL BODY-->
+
+    </div>
+    <div class="panel panel-default" style="width: 65%; margin-left: 18%; margin-top: -2%;">
+
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                PROJECTS HANDLED
+            </h3>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+
+            <dl class="dl-horizontal">
+            </dl>
+
+        </div> <!-- END PNEL BODY-->
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var element = document.getElementById('printpdf_cv');
+            html2pdf().from(element).set({              
+            }).save()
+        });
+    </script>
+</body>
+</html>

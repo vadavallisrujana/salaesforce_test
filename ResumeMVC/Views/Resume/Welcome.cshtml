@@ -1,0 +1,15 @@
+﻿@model ResumeMVC.EDMXModel.Login
+
+    @{
+        ViewBag.Title = "Welcome";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+@if (Session["UserName"] != null)
+{
+    <h2>Welcome @Model.Email</h2>
+    <li> @Html.ActionLink("Create your Cv", "PersonnalInformtion", "Resume", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+}
+
+
+

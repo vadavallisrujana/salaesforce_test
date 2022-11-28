@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ResumeMVC.EDMXModel.Person>
+@{
+    ViewBag.Title = "EmployeesList";
+    Layout = "~/Views//Shared/_LayoutAdmin.cshtml";
+}
+<div class="my-3 my-md-5">
+    <div class="container">
+        <div class="page-header">
+            <div class="col-12">
+                <div class="row" ng-app="myApp" ng-controller="myCntrl">
+                    <div class="col-sm-6 col-12">
+                        <h1 class="page-title">
+                            Employees List
+                        </h1>
+                    </div>
+                    <div class="col-sm-6 col-12">
+                        <form class="input-icon chat-history-search">
+                            <input type="search" class="form-control header-search" placeholder="Search" ng-model="valueSearch" tabindex="1">
+                            <div class="input-icon-addon">
+                                <i class="fe fe-search"></i>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-md-8 col-12">
+
+                        <div class="d-flex align-items-center mt-4 cases-pagination">
+                            <div class="page-total-text ">
+                                <strong>Search Results:</strong>
+                                @*Displaying <strong>1</strong> to <strong>10</strong> of <strong>48</strong> Items*@
+                            </div>
+                            <dir-pagination-controls max-size="10"
+                                                     direction-links="true"
+                                                     boundary-links="true">
+                            </dir-pagination-controls>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="table-responsive">
+                                <table class="table card-table table-bordered table-striped inner-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Mobile Number</th>
+                                            <th>Email Address</th>
+                                            <th>Address</th>
+                                            <th>Current project</th>
+                                            <th>Download_Cv</th>
+                                            <th>Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.FirstName)@Html.DisplayFor(modelItem => item.LastName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Tel)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Email)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Address)
+                                                </td>
+                                                <td>
+                                                    UK
+                                                </td>
+                                                <td>
+                                                    <a href="@Url.Action("DownloadCvPdf",new { id = item.IDPers })" id="@item.IDPers">
+                                                            <img src="~/images/icondownload.png" />
+                                                        </a>
+                                                    @*<a href="#">
+                                                        <img id="printpdf" src="~/images/icondownload.png" />
+                                                    </a>*@
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Edit", "EmployeesDetails", new { id = item.IDPers }) |
+                                                    @Html.ActionLink("Details", "EmployeesDetails", new { id = item.IDPers }) |
+                                                    @Html.ActionLink("Delete", "Delete", new { id = item.IDPers })
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

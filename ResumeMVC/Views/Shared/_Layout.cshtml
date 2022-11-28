@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title CV Management</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+   
+    <style type="text/css">
+
+        .field-validation-error {
+            background-color: #e85555;
+            color: white;
+            padding: 2px 9px;
+            border-radius: 9px;
+            font-size: 12px;
+        }
+
+        .navbar.navbar-inverse.navbar-fixed-top {
+            background-color: #FFAA0F !important;
+            border-color: #FFAA0F !important;
+        }
+
+        .registerLinktext {
+            color: white !IMPORTANT;
+        }
+
+        span.navbar-brand {
+            color: white !important;
+        }
+
+        a#loginLink {
+            color: white !important;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">
+                    Cv Management
+                </span> @*@Html.ActionLink("Cv Management", "Employees", "Resume", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("MyCv", "Employees", "Resume")</li>*@
+                    @*<li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content" style="margin-top: 113px;">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - CV Management </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+   
+    <script type="text/javascript">
+        $(function () {
+            /*  $('#datetimepicker1').datetimepicker();*/
+            $('#datetimepicker2').datetimepicker();
+            $('#printpdf').click(function () {
+                var x = document.getElementById("EditUrl");          
+                    x.style.display = "none";          
+                var element = document.getElementById('printpdf_cv');
+                html2pdf().from(element).set({              
+                }).save()
+            });
+        });
+    </script>
+
+    @section scripts {
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $('#datetimepicker1').data();
+            }
+        </script>
+    }
+</body>
+</html>

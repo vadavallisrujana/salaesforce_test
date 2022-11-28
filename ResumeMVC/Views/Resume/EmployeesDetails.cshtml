@@ -1,0 +1,275 @@
+﻿@model ResumeMVC.EDMXModel.Person
+
+<link href="~/css/Custome.css" rel="stylesheet" />
+
+<div id="printpdf_cv">
+    <div class="panel panel-default regpg" style="">
+
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-lg-10">
+                    <h3 class="panel-title"> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName) Informtion</h3>
+                </div>
+                <div id="EditUrl">
+                    <a href="#" data-toggle="modal" data-target="#Edite">
+                        <span class="glyphicon glyphicon-edit edit" style="margin-left: 100px"></span>
+                    </a>
+                </div>
+            </div>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Name:
+                    </label>
+                    @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        SurName:
+                    </label>
+                    @Html.DisplayFor(model => model.LastName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Date of Birth:
+                    </label>
+                    @Html.DisplayFor(model => model.DateOfBirth)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Place of Birth:
+                    </label>
+                    @Html.DisplayFor(model => model.Nationality)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Email:
+                    </label>
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Phone:
+                    </label>
+                    @Html.DisplayFor(model => model.Tel)
+                </div>
+            </div>
+        </div> <!-- END PNEL BODY-->
+
+    </div>
+    <div class="panel panel-default" style="width: 65%; margin-left: 18%; margin-top: -2%;">
+
+        <div class="panel-heading">
+            <h3 class="panel-title"> Educational  Informtion</h3>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        EducationalLevel :
+                    </label>
+                    @Html.DisplayFor(model => model.EducationalLevel)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        Degree:
+                    </label>
+                    @Html.DisplayFor(model => model.Educations.FirstOrDefault().Degree)
+                </div>
+            </div>
+
+        </div> <!-- END PNEL BODY-->
+
+    </div>
+    <div class="panel panel-default" style="width: 65%; margin-left: 18%; margin-top: -2%;">
+
+        <div class="panel-heading">
+            <h3 class="panel-title"> PROFESSIONAL SUMMARY</h3>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Role :
+                    </label>
+                    @Html.DisplayFor(model => model.WorkExperiences.FirstOrDefault().Title)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        skills:
+                    </label>
+                    @foreach (var comp in Model.Skills)
+                    {
+                        <tr>
+                            <td>@string.Join(",", comp.SkillName)</td>
+                        </tr>
+                    }
+
+                </div>
+            </div>
+        </div> <!-- END PNEL BODY-->
+
+    </div>
+    <div class="panel panel-default" style="width: 65%; margin-left: 18%; margin-top: -2%;">
+
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                PROFESSIONAL EXPERIENCE
+            </h3>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        Current Comapny :
+                    </label>
+                    @Html.DisplayFor(model => model.WorkExperiences.FirstOrDefault().Company)
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        skills:
+                    </label>
+                    @Html.DisplayFor(model => model.WorkExperiences.FirstOrDefault().FromYear)
+                </div>
+            </div>
+
+        </div> <!-- END PNEL BODY-->
+
+    </div>
+    <div class="panel panel-default" style="width: 65%; margin-left: 18%; margin-top: -2%;">
+
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                PROJECTS HANDLED
+            </h3>
+        </div> <!-- END PANEL HEADING -->
+
+        <div class="panel-body">
+            <div>
+                @foreach (var item in Model.WorkExperiences)
+                {
+                    @Html.DisplayFor(modelItem => item.Title)
+                    @Html.DisplayFor(modelItem => item.Company)
+                    @Html.DisplayFor(modelItem => item.FromYear)@Html.DisplayFor(modelItem => item.ToYear)
+                    @Html.DisplayFor(modelItem => item.Description)
+                }
+            </div>
+        </div> <!-- END PNEL BODY-->
+    </div>
+</div>
+<div style="margin-left: 854px;">
+    @*@Html.ActionLink("Download cv", "DownloadCv", new { id = ViewData.Model.IDPers })*@
+  
+    <a id="printpdf" >
+        Download cv
+        <img src="~/images/icondownload.png" />
+    </a>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Employees", "Resume")
+</p>
+
+
+<div>
+    <div class="modal fade in" id="Edite" role="dialog" aria-labelledby="myModalLabel" style="display: none; padding-left: 16px;">
+        @using (Html.BeginForm("EditDetails", "Resume", new { id = ViewData.Model.IDPers }, FormMethod.Post, new { @class = "", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @ViewData.Model.IDPers
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel"> Edite Basi Deatils</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="inline">FirstName  <span id="displayMessage"></span></label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @required = "" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="inline">LastName  <span id="displayMessage"></span></label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @required = "" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="inline">DateOfBirth  <span id="displayMessage"></span></label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @required = "" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="inline">Nationality  <span id="displayMessage"></span></label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Nationality, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @required = "" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="inline">Email  <span id="displayMessage"></span></label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @required = "" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="inline">Phone No  <span id="displayMessage"></span></label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name", @required = "" } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-green" name="register_employee" id="btnEnableDisable">Save</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+

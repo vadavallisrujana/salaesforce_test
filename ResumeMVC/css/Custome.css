@@ -1,0 +1,32 @@
+﻿body {
+}
+
+@media only screen and (max-width: 600px) {
+    .Piicon {
+        margin-left: 0% !important;
+    }
+    .Pitext {
+        margin-left: 0% !important;
+        margin-top: 0% !important;
+    }
+    .panel {
+        width: 100% !important;
+        margin-left: 0% !important;
+        margin-top: 0% !important;
+    }
+    input.btn.btn-info.nextbtn {
+        right: 0% !important;
+    }
+    .logincls {
+        margin: 0 auto;
+        width: 345px;
+    }
+}
+
+.panel.panel-default.regpg {
+    width: 65%;
+    margin-left: 18%;
+    margin-top: 3%;
+}
+
+

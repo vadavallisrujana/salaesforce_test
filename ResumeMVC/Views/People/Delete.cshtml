@@ -1,0 +1,137 @@
+﻿@model ResumeMVC.EDMXModel.Person
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EducationalLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EducationalLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkedInProdil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkedInProdil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FaceBookProfil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FaceBookProfil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C_CornerProfil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C_CornerProfil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TwitterProfil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TwitterProfil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profil)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

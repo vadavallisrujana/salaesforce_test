@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBCVModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="IDPers" />
+    </Key>
+    <Property Name="IDPers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="Nationality" Type="varchar" MaxLength="15" />
+    <Property Name="EducationalLevel" Type="varchar" MaxLength="30" />
+    <Property Name="Address" Type="varchar" MaxLength="70" />
+    <Property Name="Tel" Type="varchar" MaxLength="25" />
+    <Property Name="Email" Type="varchar" MaxLength="30" />
+    <Property Name="Summary" Type="varchar(max)" />
+    <Property Name="LinkedInProdil" Type="varchar" MaxLength="50" />
+    <Property Name="FaceBookProfil" Type="varchar" MaxLength="50" />
+    <Property Name="C_CornerProfil" Type="varchar" MaxLength="50" />
+    <Property Name="TwitterProfil" Type="varchar" MaxLength="50" />
+    <Property Name="Profil" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="DBCVModel1StoreContainer">
+    <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

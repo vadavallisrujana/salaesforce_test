@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="52a9c72a07af409d9e7c7644499459c9" Name="Diagram1">
+        <EntityTypeShape EntityType="DBCVModel.Certification" Width="1.5" PointX="8.875" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCVModel.Education" Width="1.5" PointX="5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCVModel.Language" Width="1.5" PointX="9.375" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCVModel.Person" Width="1.5" PointX="1.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCVModel.Skill" Width="1.5" PointX="7.125" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCVModel.WorkExperience" Width="1.5" PointX="5" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="DBCVModel.FK_Certifications_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCVModel.FK_Education_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCVModel.FK_Language_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCVModel.FK_Skills_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCVModel.FK_WorkExperience_Person" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

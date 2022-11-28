@@ -1,0 +1,139 @@
+﻿
+@using ResumeMVC.Models
+@model LoginViewModel
+
+<link href="~/css/Custome.css" rel="stylesheet" />
+<div class="content">
+    <div class="logincls" style="margin: 0 auto; width: 345px;">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Resume", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="text-danger">@ViewBag.Message</div>
+                <input name="_token" type="hidden" value="bVLtRr5PHqMRYeEW7ixrVP1WU2fO0AlSNc14iGtD">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="border-bottom: 0; font-size: 14px;">
+                        <h4 class="panel-title">Login</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>User email</label>
+                            <input type="email" name="email" class="form-control" required="">
+                            <label>Password</label>
+                            <input type="password" name="Password" class="form-control" required="">
+                            <br>
+                            <button type="submit" name="login" class="btn btn-sm btn-block" style=" color: #fff; background-color: #337ab7; border-color: transparent;">Login</button>
+                        </div>
+                        <div class="form-group">
+                            <p style="text-align:center">OR</p>
+                            <hr>
+                            @*@Html.ActionLink("Register", "Register", FormMethod.Post, new { @class = "btn btn-info btn-sm btn-block" })*@
+                            <a href="#" class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#employeeRegistration">Register</a>
+                        </div>
+                        <div class="col-md-12">
+                            <hr>
+                            <div class="" style="float:right;">
+                                <a href="#" data-toggle="modal" data-target="#employeeRegistrationForgotPassword">Forgot Password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
+
+
+<div class="modal fade in" id="employeeRegistration" role="dialog" aria-labelledby="myModalLabel" style="display: none; padding-left: 16px;">
+    @using (Html.BeginForm("SaveRegisterDetails", "Resume", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> REGISTRATION</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Email <span id="displayMessage"></span></label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="form-control input-sm" type="email" name="email" id="user_name" placeholder=" Email address here" required="" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Password</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input class="form-control input-sm" type="password" name="password" id="password" placeholder=" Password here" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="inline">Repeat Password</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <input class="form-control input-sm" type="password" name="re_password" id="re_password" placeholder=" Repeat password" required="">
+                                            <div class="input-group-addon" id="passwordMatchMessage">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-green" name="register_employee" id="btnEnableDisable">REGISTER</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+<script type="text/javascript">
+    $(function () {
+        if (jQuery().datepicker) {
+            $('.date-picker').datepicker({
+                rtl: Metronic.isRTL(),
+                orientation: "left",
+                autoclose: true
+            });
+        }
+        //Date pickers Read only
+        $("#dob").attr("readOnly", true);
+        //$("#submit").on("click", function () {
+        //    alert('Your Message Register');
+        //});
+    });
+
+</script>
+<script type="text/javascript">
+    // To validate Username & Password input form-controls
+    $(document).ready(function () {
+        $("#submit").on("click", function () {
+            alert('Your Message');
+        });
+    });
+</script>

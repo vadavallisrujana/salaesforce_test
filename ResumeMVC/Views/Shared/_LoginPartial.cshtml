@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity
+@using ResumeMVC.Models
+@if (Session["UserName"] != null)
+{
+    using (Html.BeginForm("LogOff", "Resume", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+         
+            </li>
+            <li>@Html.ActionLink("Log off", "LogOff", "Resume", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Create Your Cv", "PersonnalInformtion", "Resume", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "registerLinktext" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Resume", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
